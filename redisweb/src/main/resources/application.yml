@@ -1,0 +1,34 @@
+spring:
+   datasource:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&autoReconnect=true&connectTimeout=3000&socketTimeout=1000&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root           # 需要自己修改填写
+      password: 123         # 需要自己修改填写
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      minIdle: 5
+      maxActive: 100
+      initialSize: 10
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+      removeAbandoned: true
+      filters: stat # ,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
+      druidLoginName: wjf # 登录druid的账号
+      druidPassword: wjf # 登录druid的密码
+      cachePrepStmts: true  # 开启二级缓存
+mybatis:
+   typeAliasesPackage: com.ling.redisweb.mapper      # 需要自己修改填写
+   mapperLocations: classpath:/com/ling/redisweb/mapper/*.xml
+   mapperScanPackage: com.ling.redisweb.mapper
+   configLocation: classpath:/mybatis-config.xml
+
+server:
+   port: 8080
