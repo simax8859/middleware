@@ -24,11 +24,16 @@ spring:
       druidLoginName: wjf # 登录druid的账号
       druidPassword: wjf # 登录druid的密码
       cachePrepStmts: true  # 开启二级缓存
+   redis:
+      sentinel:
+         master: redis_master_group1    #mymaster
+         nodes: 192.168.56.101:26379
 mybatis:
    typeAliasesPackage: com.ling.redisweb.mapper      # 需要自己修改填写
    mapperLocations: classpath:/com/ling/redisweb/mapper/*.xml
    mapperScanPackage: com.ling.redisweb.mapper
    configLocation: classpath:/mybatis-config.xml
+
 
 server:
    port: 8080
