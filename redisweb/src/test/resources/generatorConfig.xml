@@ -46,11 +46,11 @@
 		</table>
 		-->
 
-		<table tableName="score_flow">
+		<table tableName="red_packet_info">
 			<generatedKey column="id" sqlStatement="JDBC"/>
 		</table>
 
-		<table tableName="user_score">
+		<table tableName="red_packet_record">
 			<generatedKey column="id" sqlStatement="JDBC"/>
 		</table>
 

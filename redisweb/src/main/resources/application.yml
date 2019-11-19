@@ -25,9 +25,13 @@ spring:
       druidPassword: wjf # 登录druid的密码
       cachePrepStmts: true  # 开启二级缓存
    redis:
-      sentinel:
-         master: redis_master_group1    #mymaster
-         nodes: 192.168.56.101:26379
+#      sentinel:
+#         master: redis_master_group1    #mymaster
+#         nodes: 192.168.56.101:26379
+      cluster:
+         max-redirects: 3
+         nodes: 192.168.56.101:7000,192.168.56.101:7001,192.168.56.101:7002,192.168.56.101:7003,192.168.56.101:7004,192.168.56.101:7005
+#      lettuce:
 mybatis:
    typeAliasesPackage: com.ling.redisweb.mapper      # 需要自己修改填写
    mapperLocations: classpath:/com/ling/redisweb/mapper/*.xml
